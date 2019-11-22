@@ -41,11 +41,12 @@ class BlockExtendPlugin {
 		wp_enqueue_script(
 			'xwp-block-extend-js',
 			$this->plugin->asset_url( 'js/dist/editor.js' ),
-			[
-				'lodash',
-				'react',
-				'wp-block-editor',
-			],
+			$this->plugin->asset_url( 'js/dist/editor.deps.json' ),
+			// [
+			// 	'lodash',
+			// 	'react',
+			// 	'wp-block-editor',
+			// ],
 			$this->plugin->asset_version()
 		);
 	}
