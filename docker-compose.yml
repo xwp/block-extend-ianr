@@ -14,30 +14,26 @@ services:
       MYSQL_ROOT_PASSWORD: password
 
   wordpress:
-    image: wordpress:latest
+    build: ./scripts/docker/wordpress
     depends_on:
       - mysql
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - wp_data:/var/www/html
-      - .:/var/www/html/wp-content/plugins/block-extend
+      - wp_data:/var/www/html/wp-content
+      - .:/var/www/html/wp-content/plugins/block-scaffolding-wp
     restart: always
     environment:
       WORDPRESS_DEBUG: 1
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: password
 
-  wpcli:
-    image: wordpress:cli
-    depends_on:
-      - mysql
-      - wordpress
-    volumes:
-      - wp_data:/var/www/html
-      - .:/var/www/html/wp-content/plugins/block-extend
-      - ./scripts/docker/wp-cli.yml:/var/www/html/wp-cli.yml
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
 
 volumes:
   db_data: {}
