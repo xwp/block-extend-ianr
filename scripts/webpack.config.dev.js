@@ -45,7 +45,7 @@ module.exports = {
 		disableHostCheck: true,
 		allowedHosts: [
       'localhost',
-      'wp.local',
+      'xwp.local',
 		],
 		watchOptions: {
 			aggregateTimeout: 300,
@@ -86,7 +86,7 @@ module.exports = {
 				// Process JS with Babel.
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
-				include: [ join( process.cwd(), 'src' ) ],
+				include: [ join( process.cwd(), 'js/src' ) ],
 				loader: require.resolve( 'babel-loader' ),
 				options: {
 					// Cache compilation results in ./node_modules/.cache/babel-loader/
@@ -96,7 +96,7 @@ module.exports = {
 			{
 				test: /\.(sc|sa|c)ss$/,
 				exclude: /(node_modules|bower_components)/,
-				include: [ join( process.cwd(), 'src' ) ],
+				include: [ join( process.cwd(), 'js/src' ) ],
 				use: [
 					{
 						loader: MiniCssExtractPlugin.loader,
