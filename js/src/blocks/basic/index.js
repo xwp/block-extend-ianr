@@ -5,11 +5,12 @@ const { Fragment } =  wp.element;
 const { __ } = wp.i18n;
 
 // Get built in editor components
-const {
-	RichText,
-	InspectorControls,
-	BlockControls,
-} = wp.blockEditor;
+// Refer to scripts/externals.js
+// const {
+// 	RichText,
+// 	InspectorControls,
+// 	BlockControls,
+// } = wp.blockEditor;
 
 // Add the CSS
 import './style.scss';
@@ -53,9 +54,9 @@ export const settings = {
 // The block in edit mode
 edit( { className, attributes, setAttributes } ) {
 	const { title, description } = attributes;
-	// const onChangeContent = ( newContent ) => {
-	// 	setAttributes( { content: newContent } );
-	// };
+	const onChangeContent = ( newContent ) => {
+		setAttributes( { content: newContent } );
+	};
 
 	return (
 		<Fragment>
@@ -70,14 +71,14 @@ edit( { className, attributes, setAttributes } ) {
 					tagName="h2"
 					value={ title }
 					onChange={ ( title ) => setAttributes( { title } ) }
-					// onChange={ onChangeContent( { title } ) }
+					onChange={ onChangeContent( { title } ) }
 				/>
 				<RichText
 					tagName="p"
 					multiline={ true }
 					value={ description }
 					onChange={ ( description ) => setAttributes( { description } ) }
-					// onChange={ onChangeContent( { description } ) }
+					onChange={ onChangeContent( { description } ) }
 				/>
 			</div>
 		</Fragment>
