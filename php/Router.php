@@ -2,10 +2,10 @@
 /**
  * Router class.
  *
- * @package BlockScaffolding
+ * @package BlockExtend
  */
 
-namespace XWP\BlockScaffolding;
+namespace XWP\BlockExtend;
 
 /**
  * Plugin Router.
