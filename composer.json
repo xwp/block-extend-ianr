@@ -21,12 +21,12 @@
   },
   "autoload": {
     "psr-4": {
-      "XWP\\BlockScaffolding\\": "php/"
+      "XWP\\BlockExtend\\": "php/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "XWP\\BlockScaffolding\\": "tests/php/"
+      "XWP\\BlockExtend\\": "tests/php/"
     }
   },
   "scripts": {
