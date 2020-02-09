@@ -15,6 +15,6 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require_once __DIR__ . '/vendor/autoload.php';
 }
 
-$block_extend_plugin = new BlockExtendPlugin(new Plugin(__FILE__));
+$router = new Router( new Plugin( __FILE__ ) );
 
-add_action('plugins_loaded', [ $block_extend_plugin, 'init' ]);
+add_action( 'plugins_loaded', [ $router, 'init' ] );
