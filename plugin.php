@@ -1,14 +1,17 @@
 <?php
 /**
- * Plugin Name: Block Extend
- * Description: Extend Gutenberg editor blocks.
+ * Plugin Name: IR Block Extend 
+ * Description: Extend Gutenberg editor blocks. This is a coding challeng by XWP for Ian Register. 
  * Version: 0.1.0
- * Author: XWP
- * Author URI: https://xwp.co
- * Text Domain: block-extend
+ * Author: XWP & Ian Register
+ * Author URI: https://github.com/xwp/block-extend-ianr
+ * Text Domain: ir-block-extend
  */
 
 namespace XWP\BlockExtend;
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Support for site-level autoloading.
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {

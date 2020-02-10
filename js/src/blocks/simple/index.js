@@ -1,6 +1,6 @@
 import './editor.scss';
 
-export const name = 'learning-hmr-blocks/simple';
+export const name = 'ir-block-extend/simple';
 
 export const settings = {
 	title: 'Simple',

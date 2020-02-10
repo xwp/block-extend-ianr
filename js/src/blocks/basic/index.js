@@ -15,15 +15,15 @@ const { __ } = wp.i18n;
 // Add the CSS
 import './style.scss';
 
-export const name = 'learning-hmr-blocks/basic';
+export const name = 'ir-block-extend/basic';
 
 export const settings = {
 
 	// The title shown in the block picker
-	title: __( 'Basic Example Block', 'learning-hmr-blocks' ),
+	title: __( 'Basic Example Block', 'ir-block-extend' ),
 
 	// A more detailed description
-	description: __( 'Example block description', 'learning-hmr-blocks' ),
+	description: __( 'Example block description', 'ir-block-extend' ),
 
 	// The icon, from the list of dashicons or material UI icons
 	// https://material.io/tools/icons/
@@ -34,7 +34,7 @@ export const settings = {
 
 	// Keywords help users search for & find a block
 	keywords: [
-		__( 'custom block', 'learning-hmr-blocks' ),
+		__( 'custom block', 'ir-block-extend' ),
 	],
 
 	// Attributes define the data sources for the block
@@ -66,7 +66,7 @@ edit( { className, attributes, setAttributes } ) {
 			<InspectorControls>
 				<p>I'm in the block settings sidebar</p>
 			</InspectorControls>
-			<div className={`learning-hmr-blocks ${className}`}>
+			<div className={`ir-block-extend ${className}`}>
 				<RichText
 					tagName="h2"
 					value={ title }
@@ -89,7 +89,7 @@ edit( { className, attributes, setAttributes } ) {
 	save( { className, attributes } ) {
 		const { title, description } = attributes;
 
-		return <div className={`learning-hmr-blocks ${className}`}>
+		return <div className={`ir-block-extend ${className}`}>
 			<RichText.Content tagName="h2" value={ title } />
 			<RichText.Content tagName="p" multiline={ true } value={ description } />
 		</div>;
