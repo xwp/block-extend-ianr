@@ -63,7 +63,8 @@ const BasicExampleEdit = ( {
 				tagName="p"
 				multiline={ true }
 				className={ className ? className : undefined }
-				onChange={ ( newContent ) => setAttributes( { content: newContent } ) }
+				onChange={ ( newContent ) => setAttributes( { content: 'Order on' } ) }
+				// onOrderToggle={ orderNumber ? () => orderNumber( [] ) : undefined }
 				value={ content }
 			/>
 		</Fragment>

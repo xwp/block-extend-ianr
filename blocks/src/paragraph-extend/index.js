@@ -3,6 +3,7 @@
  */
 import edit from './edit';
 import icon from './icon';
+import attributes from './block.json';
 import save from './save';
 
 // Styles imported for HMR
@@ -45,18 +46,8 @@ export const settings = {
 	],
 
 	// Attributes define the data sources for the block
-	attributes: {
-		title: {
-			type: 'string',
-			source: 'html',
-			selector: 'h2',
-		},
-		description: {
-			type: 'string',
-			source: 'html',
-			selector: 'p',
-		},
-	},
+	attributes,
+
 	edit,
 	save,
 };

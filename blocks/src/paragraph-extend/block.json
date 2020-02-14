@@ -1,0 +1,28 @@
+{
+	"name": "ir-block-extend/paragraph-extend",
+	"category": "common",
+	"attributes": {
+		"content": {
+			"type": "string",
+			"source": "html",
+			"selector": "p",
+			"default": ""
+		},
+		"description": {
+			"type": "string",
+			"source": "html",
+			"selector": "p",
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": "h2",
+			"default": ""
+		},
+		"orderNumber": {
+			"type": "boolean",
+			"default": false
+		}
+	}
+}
