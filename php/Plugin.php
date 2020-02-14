@@ -7,6 +7,9 @@
 
 namespace XWP\BlockExtend;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
  * WordPress plugin interface.
  */

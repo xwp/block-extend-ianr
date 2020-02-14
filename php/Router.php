@@ -7,6 +7,9 @@
 
 namespace XWP\BlockExtend;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
  * Plugin Router.
  */
@@ -35,22 +38,65 @@ class Router {
 	 */
 	public function init() {
 		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_editor_assets' ] );
+		add_action( 'enqueue_block_assets', [ $this, 'enqueue_front_assets' ] );
 	}
 
 	/**
-	 * Load our block assets.
+	 * Load our block assets into editor.
 	 *
 	 * @return void
 	 */
 	public function enqueue_editor_assets() {
+
+		// Quick and dirty hack to set HMR
+		$hmr = true;
+		$hmr ? $host = 'http://localhost:3030/' : $host = plugin_dir_url(__DIR__);
+
 		wp_enqueue_script(
-			'block-scaffolding-js',
-			$this->plugin->asset_url( 'js/dist/editor.js' ),
+			'block-extend-js',
+			$host . 'blocks/dist/index.js',
 			[
 				'lodash',
 				'react',
+				'wp-blocks',
+				'wp-element',
+				'wp-i18n',
+				'wp-polyfill',
 				'wp-block-editor',
 			],
+			$this->plugin->asset_version()
+		);
+
+		wp_enqueue_style(
+			'block-extend-style-css',
+			$host . 'blocks/dist/style.css',
+			array( ),
+			$this->plugin->asset_version()
+		);
+
+		wp_enqueue_style(
+			'block-extend-editor-css',
+			$host . 'blocks/dist/editor.css',
+			array( ),
+			$this->plugin->asset_version()
+		);
+	}
+
+	/**
+	 * Load our block assets into front end.
+	 *
+	 * @return void
+	 */
+	public function enqueue_front_assets() {
+
+		// Quick and dirty hack to set HMR
+		$hmr = true;
+		$hmr ? $host = 'http://localhost:3030/' : $host = plugin_dir_url(__DIR__);
+
+		wp_enqueue_style(
+			'block-extend-css',
+			$host . 'blocks/dist/style.css',
+			array( ),
 			$this->plugin->asset_version()
 		);
 	}

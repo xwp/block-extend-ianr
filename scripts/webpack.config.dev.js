@@ -13,10 +13,12 @@ const postcssNormalize = require('postcss-normalize');
 
 const externals = require( './externals' );
 
-// This is above
-const path = require( 'path' );
-
+// Not currently implemented
 // Clean up manifest on exit.
+// Extend to set (or delete) a variable that PHP can pick up to determine if 
+// webpack is running in dev mode and therefore set whether to serve assets
+// from localhost or the actual local hostname - IF can't modify a .env variable
+
 // onExit( () => {
 // 	try {
 // 		unlinkSync( 'build/asset-manifest.json' );
@@ -26,7 +28,7 @@ const path = require( 'path' );
 // } );
 
 const port = parseInt( process.env.PORT, 10 ) || 3030;
-const publicPath = `http://localhost:${ port }/build/`;
+const publicPath = `http://localhost:${ port }/blocks/dist/`;
 
 /**
  * Theme development build configuration.
@@ -67,14 +69,14 @@ module.exports = {
 
 	// Specify where the code comes from.
 	entry: {
-		index: join( process.cwd(), 'js/src', 'index.js' ),
-		// style: join( process.cwd(), 'src', 'style.scss' ),
-		// editor: join( process.cwd(), 'src', 'editor.scss' ),
+		index: join( process.cwd(), 'blocks/src', 'index.js' ),
+		style: join( process.cwd(), 'blocks/src', 'style.scss' ),
+		editor: join( process.cwd(), 'blocks/src', 'editor.scss' ),
 	},
 	output: {
 		// Add /* filename */ comments to generated require()s in the output.
 		pathinfo: false,
-		path: join( process.cwd(), 'build' ),
+		path: join( process.cwd(), 'blocks/dist' ),
 		filename: '[name].js',
 		publicPath,
 	},
@@ -86,7 +88,7 @@ module.exports = {
 				// Process JS with Babel.
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
-				include: [ join( process.cwd(), 'js/src' ) ],
+				include: [ join( process.cwd(), 'blocks/src' ) ],
 				loader: require.resolve( 'babel-loader' ),
 				options: {
 					// Cache compilation results in ./node_modules/.cache/babel-loader/
@@ -96,7 +98,7 @@ module.exports = {
 			{
 				test: /\.(sc|sa|c)ss$/,
 				exclude: /(node_modules|bower_components)/,
-				include: [ join( process.cwd(), 'js/src' ) ],
+				include: [ join( process.cwd(), 'blocks/src' ) ],
 				use: [
 					{
 						loader: MiniCssExtractPlugin.loader,
@@ -156,6 +158,7 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: '[name].css',
 		}),
+		// Ignore the files produced on the fly in memory when extracting styles from JS imports
 		new IgnoreEmitPlugin(['editor.js', 'style.js']),
 	],
 };

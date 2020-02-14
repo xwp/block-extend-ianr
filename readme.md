@@ -3,6 +3,20 @@
 [![Build Status](https://travis-ci.com/xwp/block-scaffolding-wp.svg?branch=master)](https://travis-ci.com/xwp/block-scaffolding-wp)
 [![Coverage Status](https://coveralls.io/repos/github/xwp/block-scaffolding-wp/badge.svg?branch=master)](https://coveralls.io/github/xwp/block-scaffolding-wp?branch=master)
 
+## Notes from Ian Register
+
+##### Currently abbreviated note form, to be edited.
+
+Explain - I would update to use wp-scripts - Want add typescript - Use an asset file name thing - During an actual project or tasking would stick to the brief and time / effort estimate - Hmr because I’m a ui developer - Allowing multiple blocks as that’s generally how i’ve needed to set up for a UI build - working through the GB examples from core, and paragraph from Block library to learn from first principles - have refactored js directory to blocks directory as it contains styles and js - I would probably spend some time deciding whether to call the output directory dist or build, leaning towards dist as it would be built, commited and distributed vs if it is built via a CI process - would add a config.json (uncomitted) and a config.json.example comitted with settings picked up by webpack for hostnames/directory paths etc - test what sort of cache busting needed (note as components are cached in memory and re-register if they’re updated), and needs a means to loading on front end. - would create/update an .env variable or file so that php could pick up whether development mode was in just static/built local or running hmr - rename scripts to config so it doesn’t get confused with js - tried named and default exports for the save/edit - check function names show up in dev tools (ie from module exports ) - not testedd agaaint teh deprecated functions of p block-  added exit if accessed directly but generally have that disabled in nginx at server level- would look at the enqued vs register front / editor assets - experimenting with the styles hence the different css selectors targeting styles, really need more of a UI - errors if not running webpack in dev mode ie localhost webpack dev server in memory serving `blocks/dist/*` need to run webpack build to see front end updates and there may be invalidation of the block due to this, perhaps can fix with better management of when localhost vs actual hostname is used
+
+##### Why did I add restructure to include multiple blocks
+
+Introduce least amount of boilerplate and not have to set up tests on every block for `registerBlockType`
+
+##### Why did I add HMR
+
+When properly configured HMR allows developers to make changes to a component file, save, and see that component update instantly on our webpage without disrupting any other application state, dramatically speeding up prototyping work and code iteration.
+
 ## Requirements
 
 - WordPress 5.0+ or the [Gutenberg Plugin](https://wordpress.org/plugins/gutenberg/).

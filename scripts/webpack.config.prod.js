@@ -14,7 +14,7 @@ const externals = require( './externals' );
  */
 module.exports = {
 	mode: 'production',
-	// devtool: 'hidden-source-map',
+	devtool: 'hidden-source-map',
 	context: process.cwd(),
 
 	// Clean up build output
@@ -39,13 +39,13 @@ module.exports = {
 
 	// Specify where the code comes from.
 	entry: {
-		index: join( process.cwd(), 'src', 'index.js' ),
-		style: join( process.cwd(), 'src', 'style.scss' ),
-		editor: join( process.cwd(), 'src', 'editor.scss' ),
+		index: join( process.cwd(), 'blocks/src', 'index.js' ),
+		style: join( process.cwd(), 'blocks/src', 'style.scss' ),
+		editor: join( process.cwd(), 'blocks/src', 'editor.scss' ),
 	},
 	output: {
 		pathinfo: false,
-		path: join( process.cwd(), 'build' ),
+		path: join( process.cwd(), 'blocks/dist' ),
 		filename: '[name].js',
 	},
 
@@ -56,13 +56,13 @@ module.exports = {
 				// Process JS with Babel.
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
-				include: [ join( process.cwd(), 'src' ) ],
+				include: [ join( process.cwd(), 'blocks/src' ) ],
 				loader: require.resolve( 'babel-loader' ),
 			},
 			{
 				test: /\.(sc|sa|c)ss$/,
 				exclude: /(node_modules|bower_components)/,
-				include: [ join( process.cwd(), 'src' ) ],
+				include: [ join( process.cwd(), 'blocks/src' ) ],
 				use: [
 					{
 						loader: MiniCssExtractPlugin.loader,

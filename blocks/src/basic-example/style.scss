@@ -1,0 +1,32 @@
+// Targets block in editor
+.wp-block[data-type="ir-block-extend/basic-example"] {
+
+  .c-block {
+    background-color: palegoldenrod;
+		padding: 30px 50px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    
+    h2 {
+      background-color: palevioletred;
+    }  
+  }
+
+	> .block-editor-block-list__block-edit {
+    background-color: chocolate;
+		padding: 30px;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	}
+}
+
+// Targets front end only
+.entry-content {
+  .wp-block-ir-block-extend-basic-example {
+    background-color: darkmagenta;
+		padding: 30px 50px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    
+    h2 {
+      background-color: palegoldenrod;
+    }  
+  }
+}

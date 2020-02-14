@@ -16,6 +16,7 @@
     "postinstall": "composer install",
     "dev": "wp-scripts start",
     "dev:hmr": "webpack-dev-server --config scripts/webpack.config.dev.js",
+    "build:hmr": "webpack --config scripts/webpack.config.prod.js",
     "build": "wp-scripts build",
     "lint": "npm-run-all --parallel lint:*",
     "lint:js": "eslint js/src",

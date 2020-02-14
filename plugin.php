@@ -20,4 +20,9 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
 
 $router = new Router( new Plugin( __FILE__ ) );
 
+// Enqueue editor UI scripts & styles.
+// TODO add to plugins_loaded hook
+// Quick hack / semi hard coding of dev/prod hostnames in Router.php
+// require_once( __DIR__ . '/php/asset-loader.php' );
+
 add_action( 'plugins_loaded', [ $router, 'init' ] );

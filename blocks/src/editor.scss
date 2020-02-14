@@ -1,0 +1,7 @@
+@import "./basic-editable-example/editor.scss";
+
+// Reset default block styles
+.editor-styles-wrapper [data-block] {
+  margin: 0;
+}
+
