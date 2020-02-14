@@ -37,7 +37,7 @@ export const settings = {
 	icon,
 
 	// The category is the section of the block inserter where this shows
-	category: 'widgets',
+	category: 'common',
 
 	// Keywords help users search for & find a block
 	keywords: [
