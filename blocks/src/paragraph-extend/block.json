@@ -8,12 +8,6 @@
 			"selector": "p",
 			"default": ""
 		},
-		"description": {
-			"type": "string",
-			"source": "html",
-			"selector": "p",
-			"default": ""
-		},
 		"title": {
 			"type": "string",
 			"source": "html",

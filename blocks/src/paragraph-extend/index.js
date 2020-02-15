@@ -3,7 +3,7 @@
  */
 import edit from './edit';
 import icon from './icon';
-import attributes from './block.json';
+import metadata from './block.json';
 import save from './save';
 
 // Styles imported for HMR
@@ -26,6 +26,9 @@ export const name = 'ir-block-extend/paragraph-extend';
 /**
  * Block configuration
  */
+
+const { attributes } = metadata;
+
 export const settings = {
 
 	// The display title shown in the block inserter
