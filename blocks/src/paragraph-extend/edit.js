@@ -10,6 +10,9 @@ import classnames from 'classnames';
 // Import the Fragment class from the wp-scripts ReactJS abstraction
 const { Fragment } =  wp.element;
 
+// Test import directly and not via accessing wp global from externals.js
+import { Button } from '@wordpress/components';
+
 // Get translation functions
 const { __ } = wp.i18n;
 
@@ -21,9 +24,21 @@ const {
 } = wp.blockEditor;
 
 const {
+	Notice,
 	PanelBody,
 	ToggleControl,
 } = wp.components;
+
+// Use built in Notice to test toggle
+const ToggleNotice = ( { text } ) => (
+	<Notice status="success">
+		<p>Testing toggle: { text }</p>
+	</Notice>
+);
+
+const MyButton = () => {
+	return <Button>Click Me up!</Button>;
+}
 
 // The components for the block in the editor interface
 const BasicExampleEdit = ( {
@@ -39,6 +54,7 @@ const BasicExampleEdit = ( {
 		'is-basic-editable-example',
 	);
 
+	
 	return (
 		<Fragment>
 			<BlockControls>
@@ -58,13 +74,23 @@ const BasicExampleEdit = ( {
 					/>
 				</PanelBody>
 			</InspectorControls>
+			<Fragment>
+				{ orderNumber 
+						?
+						<Fragment>
+							<ToggleNotice text="Coffee" />
+							<MyButton />
+						</Fragment>
+						:
+						<ToggleNotice text="Tea" />
+				}
+			</Fragment>
 			<RichText
 				identifier="content"
 				tagName="p"
 				multiline={ true }
 				className={ className ? className : undefined }
-				onChange={ ( newContent ) => setAttributes( { content: 'Order on' } ) }
-				// onOrderToggle={ orderNumber ? () => orderNumber( [] ) : undefined }
+				onChange={ ( newContent ) => setAttributes( { content: newContent } ) }
 				value={ content }
 			/>
 		</Fragment>
