@@ -12,6 +12,10 @@ const { Fragment } =  wp.element;
 
 // Test import directly and not via accessing wp global from externals.js
 import { Button } from '@wordpress/components';
+import { useSelect, AsyncModeProvider } from '@wordpress/data';
+
+// Get data 
+const { select } = wp.data;
 
 // Get translation functions
 const { __ } = wp.i18n;
@@ -40,6 +44,18 @@ const MyButton = () => {
 	return <Button>Click Me up!</Button>;
 }
 
+const BlockCount = () => {
+  const count = useSelect( ( select ) => {
+    return select( 'core/block-editor' ).getBlockCount()
+  }, [] );
+
+  return count;
+}
+
+const BlockCountAlt = () => {
+	return select( 'core/block-editor' ).getBlockCount();
+}
+
 // The components for the block in the editor interface
 const BasicExampleEdit = ( {
 	attributes,
@@ -48,13 +64,13 @@ const BasicExampleEdit = ( {
 	const {
 		content,
 		orderNumber,
+		blocksTotal,
 	} = attributes;
 
 	const className = classnames(
 		'is-basic-editable-example',
 	);
 
-	
 	return (
 		<Fragment>
 			<BlockControls>
@@ -79,7 +95,8 @@ const BasicExampleEdit = ( {
 						?
 						<Fragment>
 							<ToggleNotice text="Coffee" />
-							<MyButton />
+							<BlockCount />
+						  <BlockCountAlt />
 						</Fragment>
 						:
 						<ToggleNotice text="Tea" />
