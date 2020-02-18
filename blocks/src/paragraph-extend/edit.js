@@ -79,7 +79,6 @@ const withParagraphExtendEdit =  createHigherOrderComponent( ( BlockEdit ) => {
 
 		return (
 			<Fragment>
-				<BlockEdit { ...props } />
 				<InspectorControls>
 					<p>I'm in the block settings sidebar and need padding.</p>
 					<PanelBody title={ __( 'Display Settings' ) } className="blocks-">
@@ -94,6 +93,7 @@ const withParagraphExtendEdit =  createHigherOrderComponent( ( BlockEdit ) => {
 						/>
 					</PanelBody>
 				</InspectorControls>
+				<BlockEdit { ...props } />
 				<Fragment>
 					{ orderNumber 
 							&&
