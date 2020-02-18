@@ -49,9 +49,17 @@ const MyButton = () => {
 const BlockCount = () => {
   const count = useSelect( ( select ) => {
     return select( 'core/block-editor' ).getBlockCount()
-  }, '[]' );
+  }, '[]');
 
   return count;
+}
+
+const BlockData = () => {
+  const index = useSelect( ( select ) => {
+    return select( 'core/block-editor' ).getSelectedBlockCount()
+  }, '[]' );
+
+  return index;
 }
 
 // This does not update when removing blocks - use subscribe method to update
@@ -71,7 +79,7 @@ const ParagraphExtendEdit = ( {
 	} = attributes;
 
 	const className = classnames(
-		'.c-block-number',
+		'c-block-number',
 	);
 
 	return (
@@ -97,7 +105,7 @@ const ParagraphExtendEdit = ( {
 				{ orderNumber 
 						&&
 						<Fragment>
-							<span>Block #<BlockCount /></span>
+							<span className={ className ? className : undefined }>Block #<BlockData/> of <BlockCount /></span>
 						</Fragment>
 				}
 			</Fragment>
