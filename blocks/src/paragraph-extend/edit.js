@@ -49,7 +49,7 @@ const MyButton = () => {
 const BlockCount = () => {
   const count = useSelect( ( select ) => {
     return select( 'core/block-editor' ).getBlockCount()
-  }, '[]');
+  }, []);
 
   return count;
 }
@@ -57,7 +57,7 @@ const BlockCount = () => {
 const BlockData = () => {
   const index = useSelect( ( select ) => {
     return select( 'core/block-editor' ).getSelectedBlockCount()
-  }, '[]' );
+  }, [] );
 
   return index;
 }
