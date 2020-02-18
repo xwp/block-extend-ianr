@@ -12,7 +12,7 @@ const { Fragment } =  wp.element;
 
 // Test import directly and not via accessing wp global from externals.js
 import { Button } from '@wordpress/components';
-import { useSelect, AsyncModeProvider } from '@wordpress/data';
+import { useSelect } from '@wordpress/data';
 
 // Get data 
 const { select } = wp.data;
@@ -34,9 +34,9 @@ const {
 } = wp.components;
 
 // Use built in Notice to test toggle
-const ToggleNotice = ( { text } ) => (
+const ToggleNotice = () => (
 	<Notice status="success">
-		<p>Testing toggle: { text }</p>
+		<p>There are:</p>
 	</Notice>
 );
 
@@ -44,20 +44,23 @@ const MyButton = () => {
 	return <Button>Click Me up!</Button>;
 }
 
+// This methodology updates count when adding/removing blocks
+// Is this expected behaviour or a side effect (if latter then test)
 const BlockCount = () => {
   const count = useSelect( ( select ) => {
     return select( 'core/block-editor' ).getBlockCount()
-  }, [] );
+  }, '[]' );
 
   return count;
 }
 
+// This does not update when removing blocks - use subscribe method to update
 const BlockCountAlt = () => {
 	return select( 'core/block-editor' ).getBlockCount();
 }
 
 // The components for the block in the editor interface
-const BasicExampleEdit = ( {
+const ParagraphExtendEdit = ( {
 	attributes,
 	setAttributes,
 } ) => {
@@ -68,7 +71,7 @@ const BasicExampleEdit = ( {
 	} = attributes;
 
 	const className = classnames(
-		'is-basic-editable-example',
+		'.c-block-number',
 	);
 
 	return (
@@ -92,14 +95,10 @@ const BasicExampleEdit = ( {
 			</InspectorControls>
 			<Fragment>
 				{ orderNumber 
-						?
+						&&
 						<Fragment>
-							<ToggleNotice text="Coffee" />
-							<BlockCount />
-						  <BlockCountAlt />
+							<span>Block #<BlockCount /></span>
 						</Fragment>
-						:
-						<ToggleNotice text="Tea" />
 				}
 			</Fragment>
 			<RichText
@@ -114,4 +113,4 @@ const BasicExampleEdit = ( {
 	);
 }
 
-export default BasicExampleEdit;
+export default ParagraphExtendEdit;
