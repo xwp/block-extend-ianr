@@ -4,35 +4,22 @@
 import classnames from 'classnames';
 
 /**
- * WordPress dependencies - refer to scripts/externals.js for `wp` global
+ * WordPress dependencies
  */
-
-// Import the Fragment class from the wp-scripts ReactJS abstraction
-const { Fragment } =  wp.element;
-
-// Todo - doc this
-const { createHigherOrderComponent } = wp.compose;
-const { addFilter } = wp.hooks; 
-
-// Test import directly and not via accessing wp global from externals.js
-import { useSelect } from '@wordpress/data';
-
-// Get data 
-const { select } = wp.data;
-
-// Get translation functions
-const { __ } = wp.i18n;
-
-// Get built in editor components
-const {
+import { __ } from '@wordpress/i18n';
+import { Fragment } from '@wordpress/element';
+import {
 	InspectorControls,
-	RichText,
-} = wp.blockEditor;
-
-const {
+} from '@wordpress/block-editor';
+import {
 	PanelBody,
 	ToggleControl,
-} = wp.components;
+} from '@wordpress/components';
+import { createHigherOrderComponent } from '@wordpress/compose';
+import { useSelect, select } from '@wordpress/data';
+
+// Event hooks from global object
+const { addFilter } = wp.hooks;
 
 /**
  * Internal dependencies
