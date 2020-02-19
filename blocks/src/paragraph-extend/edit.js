@@ -45,19 +45,9 @@ const BlockCount = () => {
   return count;
 }
 
-const BlockData = () => {
-  const index = useSelect( ( select ) => {
-    return select( 'core/block-editor' ). getBlock()
-  }, [] );
-	// console.log(index);
-	
-  return index;
+const BlockIndex = ( clientId ) => {
+	return select( 'core/block-editor' ).getBlockIndex( clientId );
 }
-
-// This does not update when removing blocks - use subscribe method to update
-// const BlockCountAlt = () => {
-// 	return select( 'core/block-editor' ).getBlockCount();
-// }
 
 // Filter the components for the block in the editor interface
 const withParagraphExtendEdit =  createHigherOrderComponent( ( BlockEdit ) => {
@@ -68,6 +58,7 @@ const withParagraphExtendEdit =  createHigherOrderComponent( ( BlockEdit ) => {
 
 			const {
 				attributes,
+				clientId,
 				setAttributes,
 			} = props;
 
@@ -78,6 +69,11 @@ const withParagraphExtendEdit =  createHigherOrderComponent( ( BlockEdit ) => {
 			const className = classnames(
 				'c-block-number',
 			);
+
+			// Quick hack whilst getting <BlockIndex clientId={clientId} /> to work
+		  const getIndexCount = ( clientId ) => {
+				return select( 'core/block-editor' ).getBlockIndex( clientId ) + 1;
+			};
 
 			return (
 				<Fragment>
@@ -98,7 +94,10 @@ const withParagraphExtendEdit =  createHigherOrderComponent( ( BlockEdit ) => {
 						{ orderNumber 
 								&&
 								<Fragment>
-									<span className={ className }>Block #<BlockData/> of <BlockCount /></span>
+									<span className={ className }>
+										{/* <BlockIndex clientId={clientId} /> */}
+										Block #{ getIndexCount( clientId ) } of <BlockCount />
+									</span>
 								</Fragment>
 						}
 					</Fragment>
