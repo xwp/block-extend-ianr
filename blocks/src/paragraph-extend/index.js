@@ -1,10 +1,11 @@
 /**
  * Internal dependencies
  */
+import attributes from './attributes';
 import edit from './edit';
 import icon from './icon';
 import metadata from './block.json';
-import save from './save';
+// import save from './save';
 
 // Styles imported for HMR
 import './editor.scss';
@@ -27,7 +28,11 @@ const { __ } = wp.i18n;
  * Block configuration
  */
 
-const { attributes } = metadata;
+// const { attributes } = metadata;
+
+// Whitelist to restrict to specific blocks
+// To do - how to exit or if gate block/settings?
+const allowedBlocks = [ 'core/paragraph' ];
 
 export const settings = {
 
@@ -38,10 +43,11 @@ export const settings = {
 	// description: __( 'This is the XWP coding challenge for Ian Register.', 'ir-block-extend' ),
 
 	// The icon, from FontAwesome
+	// Todo addFilter for this
 	// icon,
 
 	// The category is the section of the block inserter where this shows
-	category: 'common',
+	// category: 'common',
 
 	// Keywords help users search for & find a block
 	// keywords: [
@@ -52,5 +58,5 @@ export const settings = {
 	attributes,
 
 	edit,
-	save,
+	// save,
 };

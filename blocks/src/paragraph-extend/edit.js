@@ -55,9 +55,9 @@ const BlockData = () => {
 }
 
 // This does not update when removing blocks - use subscribe method to update
-const BlockCountAlt = () => {
-	return select( 'core/block-editor' ).getBlockCount();
-}
+// const BlockCountAlt = () => {
+// 	return select( 'core/block-editor' ).getBlockCount();
+// }
 
 // Filter the components for the block in the editor interface
 const withParagraphExtendEdit =  createHigherOrderComponent( ( BlockEdit ) => {

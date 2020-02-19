@@ -1,34 +1,24 @@
 /**
- * External dependencies
+ * WordPress dependencies
  */
-import classnames from 'classnames';
-
-/**
- * WordPress dependencies - refer to scripts/externals.js for `wp` global
- */
-
-// Get built in editor components
-const {
-	RichText,
-} = wp.blockEditor;
+const { addFilter } = wp.hooks; 
 
 /**
  * The markup to be serialized back when a post is saved
  */
-export default function save( { attributes } ) {
-	const {
-		content,
-	} = attributes;
+const ParagraphExtendSave =  ( extraProps, attributes ) => {
 
-	const className = classnames(
-		'is-basic-editable-example',
-	);
+	const { orderNumber } = attributes;
 
-	return (
-		<RichText.Content
-			tagName="p"
-			className={ className ? className : undefined }
-			value={ content }
-		/>
-	);
+	return extraProps;
+
 }
+
+// Todo doc this
+addFilter(
+	'blocks.getSaveContent.extraProps',
+	'core/paragraph',
+	ParagraphExtendSave
+);
+
+export default ParagraphExtendSave;
