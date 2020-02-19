@@ -14,6 +14,13 @@ const { Fragment } =  wp.element;
 const { createHigherOrderComponent } = wp.compose;
 const { addFilter } = wp.hooks; 
 
+/**
+ * Block configuration
+ */
+// Whitelist to restrict to specific blocks
+// To do - how to exit or if gate block/settings?
+const allowedBlocks = [ 'core/paragraph' ];
+
 // Test import directly and not via accessing wp global from externals.js
 import { Button } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
