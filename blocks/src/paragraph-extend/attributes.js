@@ -3,15 +3,26 @@
  */
 const { addFilter } = wp.hooks; 
 
+/**
+ * Internal dependencies
+ */
+import metadata from './block.json';
+
+// Whitelist to restrict to specific blocks
+const allowedBlocks = metadata.allowedBlocks;
+
 const ParagraphExtendAttributes = ( settings ) => {
 
-	// Todo Add test to ensure orderNumber doesn't exist as it would be over written
-	settings.attributes = Object.assign( settings.attributes, {
-		orderNumber:{ 
-			type: 'boolean',
-			default: false,
-		}
-	});
+	if ( allowedBlocks.includes( settings.name ) ) {
+
+		settings.attributes = Object.assign( settings.attributes, {
+			orderNumber:{ 
+				type: 'boolean',
+				default: false,
+			}
+		});
+	
+	}
 
 	return settings;
 }

@@ -1,19 +1,10 @@
 {
-	"name": "ir-block-extend/paragraph-extend",
+	"name": "",
 	"category": "common",
+	"allowedBlocks" : [
+		"core/paragraph"
+	],
 	"attributes": {
-		"content": {
-			"type": "string",
-			"source": "html",
-			"selector": "p",
-			"default": ""
-		},
-		"title": {
-			"type": "string",
-			"source": "html",
-			"selector": "h2",
-			"default": ""
-		},
 		"orderNumber": {
 			"type": "boolean",
 			"default": false
