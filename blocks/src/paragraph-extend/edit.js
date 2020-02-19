@@ -27,7 +27,7 @@ const { __ } = wp.i18n;
 // Get built in editor components
 const {
 	InspectorControls,
-	BlockControls,
+	RichText,
 } = wp.blockEditor;
 
 const {
@@ -64,46 +64,52 @@ const withParagraphExtendEdit =  createHigherOrderComponent( ( BlockEdit ) => {
 
 	return ( props ) => {
 
-		const {
-			attributes,
-			setAttributes,
-		} = props;
+		if ( props.name === 'core/paragraph' ) {
 
-		const {
-			orderNumber,
-		} = attributes;
+			const {
+				attributes,
+				setAttributes,
+			} = props;
 
-		const className = classnames(
-			'c-block-number',
-		);
+			const {
+				orderNumber,
+			} = attributes;
 
-		return (
-			<Fragment>
-				<InspectorControls>
-					<p>I'm in the block settings sidebar and need padding.</p>
-					<PanelBody title={ __( 'Display Settings' ) } className="blocks-">
-						<ToggleControl
-							label={ __( 'Show Order Number' ) }
-							checked={ !! orderNumber }
-							onChange={ () => setAttributes( { orderNumber: ! orderNumber } ) }
-							help={ orderNumber ?
-								__( 'Showing order.' ) :
-								__( 'Toggle to show order of paragraph blocks.' )
-							}
-						/>
-					</PanelBody>
-				</InspectorControls>
-				<BlockEdit { ...props } />
+			const className = classnames(
+				'c-block-number',
+			);
+
+			return (
 				<Fragment>
-					{ orderNumber 
-							&&
-							<Fragment>
-								<span className={ className }>Block #<BlockData/> of <BlockCount /></span>
-							</Fragment>
-					}
+					<InspectorControls>
+						<PanelBody title={ __( 'Display Settings' ) } className="blocks-">
+							<ToggleControl
+								label={ __( 'Show Order Number' ) }
+								checked={ !! orderNumber }
+								onChange={ () => setAttributes( { orderNumber: ! orderNumber } ) }
+								help={ orderNumber ?
+									__( 'Showing order.' ) :
+									__( 'Toggle to show order of paragraph blocks.' )
+								}
+							/>
+						</PanelBody>
+					</InspectorControls>
+					<Fragment>
+						{ orderNumber 
+								&&
+								<Fragment>
+									<span className={ className }>Block #<BlockData/> of <BlockCount /></span>
+								</Fragment>
+						}
+					</Fragment>
+					<BlockEdit { ...props } />
 				</Fragment>
-			</Fragment>
-		);
+			);
+
+		} else
+		{
+			return <BlockEdit {...props} />;
+		};
 	};
 }, "withParagraphExtendEdit" );
 
