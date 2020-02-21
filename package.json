@@ -19,7 +19,7 @@
     "build:hmr": "webpack --config scripts/webpack.config.prod.js",
     "build": "wp-scripts build",
     "lint": "npm-run-all --parallel lint:*",
-    "lint:js": "eslint js/src",
+    "lint:js": "eslint blocks/src",
     "lint:php": "composer lint",
     "test": "npm-run-all --parallel test:*",
     "test:php": "composer test -- --no-coverage",

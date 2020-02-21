@@ -88,15 +88,9 @@ class Router {
 	 * @return void
 	 */
 	public function enqueue_front_assets() {
-
-		// Quick and dirty hack to set HMR
-		// Though HMR not relevant  to FE without any React components
-		$hmr = false;
-		$hmr ? $host = 'http://localhost:3030/' : $host = plugin_dir_url(__DIR__);
-
 		wp_enqueue_style(
 			'block-extend-css',
-			$host . 'blocks/dist/style.css',
+			$this->plugin->asset_url('blocks/dist/style.css'),
 			array( ),
 			$this->plugin->asset_version()
 		);
