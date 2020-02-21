@@ -11,8 +11,8 @@ Explain - I would update to use wp-scripts - Want add typescript - Use an asset 
 
 Was trying to debug an error but it's present with all plugins disabled perhaps test if it's there when React not in development mode
 
-Need to add documentation and testing
-Found I needed to add a save function as otherwise errors
+Need to add documentation and linting, testing
+
 
 ##### Doc like this
 /**
