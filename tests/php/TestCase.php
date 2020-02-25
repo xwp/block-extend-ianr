@@ -2,10 +2,10 @@
 /**
  * Tests Case class.
  *
- * @package BlockScaffolding
+ * @package BlockExtend
  */
 
-namespace XWP\BlockScaffolding;
+namespace XWP\BlockExtend;
 
 use Mockery;
 use WP_Mock;

@@ -2,10 +2,10 @@
 /**
  * Tests for Router class.
  *
- * @package BlockScaffolding
+ * @package BlockExtend
  */
 
-namespace XWP\BlockScaffolding;
+namespace XWP\BlockExtend;
 
 use Mockery;
 use WP_Mock;
@@ -18,7 +18,7 @@ class TestRouter extends TestCase {
 	/**
 	 * Test init.
 	 *
-	 * @covers \XWP\BlockScaffolding\Router::init()
+	 * @covers \XWP\BlockExtend\Router::init()
 	 */
 	public function test_init() {
 		$plugin = new Router( Mockery::mock( Plugin::class ) );
@@ -31,7 +31,7 @@ class TestRouter extends TestCase {
 	/**
 	 * Test enqueue_editor_assets.
 	 *
-	 * @covers \XWP\BlockScaffolding\Router::enqueue_editor_assets()
+	 * @covers \XWP\BlockExtend\Router::enqueue_editor_assets()
 	 */
 	public function test_enqueue_editor_assets() {
 		$plugin = Mockery::mock( Plugin::class );
