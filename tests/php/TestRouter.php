@@ -38,8 +38,8 @@ class TestRouter extends TestCase {
 
 		$plugin->shouldReceive( 'asset_url' )
 			->once()
-			->with( 'js/dist/editor.js' )
-			->andReturn( 'http://example.com/js/dist/editor.js' );
+			->with( 'index.js', true, true )
+			->andReturn( 'http://example.com/blocks/dist/index.js' );
 
 		$plugin->shouldReceive( 'asset_version' )
 			->once()
@@ -48,8 +48,8 @@ class TestRouter extends TestCase {
 		WP_Mock::userFunction( 'wp_enqueue_script' )
 			->once()
 			->with(
-				'block-scaffolding-js',
-				'http://example.com/js/dist/editor.js',
+				'block-extend-js',
+				'http://example.com/blocks/dist/index.js',
 				Mockery::type( 'array' ),
 				'1.2.3'
 			);
