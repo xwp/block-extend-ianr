@@ -5,10 +5,13 @@ const { addFilter } = wp.hooks;
 
 /**
  * The markup to be serialized back when a post is saved
+ *
+ * @param {Object} extraProps Pass in additional props
+//  * @param {Object} attributes
  */
-const ParagraphExtendSave =  ( extraProps, attributes ) => {
+const ParagraphExtendSave =  ( extraProps ) => {
 
-	const { orderNumber } = attributes;
+	// const { orderNumber } = attributes;
 
 	return extraProps;
 

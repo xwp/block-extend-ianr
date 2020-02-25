@@ -1,47 +1,48 @@
 /**
  * External dependencies
  */
-import classnames from 'classnames';
+import classnames from 'classnames'
 
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
-import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n'
+import { Fragment } from '@wordpress/element'
 import {
 	InspectorControls,
-} from '@wordpress/block-editor';
+} from '@wordpress/block-editor'
 import {
 	PanelBody,
 	ToggleControl,
-} from '@wordpress/components';
-import { createHigherOrderComponent } from '@wordpress/compose';
-import { useSelect, select } from '@wordpress/data';
+} from '@wordpress/components'
+import { createHigherOrderComponent } from '@wordpress/compose'
+import { useSelect, select } from '@wordpress/data'
 
 // Event hooks from global object
-const { addFilter } = wp.hooks;
+const { addFilter } = wp.hooks
 
 /**
  * Internal dependencies
  */
-import metadata from './block.json';
+import metadata from './block.json'
 
 // Whitelist to restrict to specific blocks
-const allowedBlocks = metadata.allowedBlocks;
+const allowedBlocks = metadata.allowedBlocks
 
 // This methodology updates count when adding/removing blocks
 // Is this expected behaviour or a side effect (if latter then test)
 const BlockCount = () => {
-  const count = useSelect( ( select ) => {
+  const count = useSelect( () => {
     return select( 'core/block-editor' ).getBlockCount()
-  }, []);
+  }, [])
 
-  return count;
+  return count
 }
 
-const BlockIndex = ( clientId ) => {
-	return select( 'core/block-editor' ).getBlockIndex( clientId );
-}
+// TODO Use data API to get index count
+// const BlockIndex = ( clientId ) => {
+// 	return select( 'core/block-editor' ).getBlockIndex( clientId )
+// }
 
 // Filter the components for the block in the editor interface
 const withParagraphExtendEdit =  createHigherOrderComponent( ( BlockEdit ) => {
@@ -54,20 +55,20 @@ const withParagraphExtendEdit =  createHigherOrderComponent( ( BlockEdit ) => {
 				attributes,
 				clientId,
 				setAttributes,
-			} = props;
+			} = props
 
 			const {
 				orderNumber,
-			} = attributes;
+			} = attributes
 
 			const className = classnames(
 				'c-block-number',
 			);
 
 			// Quick hack whilst getting <BlockIndex clientId={clientId} /> to work
-		  const getIndexCount = ( clientId ) => {
-				return select( 'core/block-editor' ).getBlockIndex( clientId ) + 1;
-			};
+		  const getIndexCount = () => {
+				return select( 'core/block-editor' ).getBlockIndex( clientId ) + 1
+			}
 
 			return (
 				<Fragment>
@@ -89,7 +90,7 @@ const withParagraphExtendEdit =  createHigherOrderComponent( ( BlockEdit ) => {
 								&&
 								<Fragment>
 									<span className={ className }>
-										{/* <BlockIndex clientId={clientId} /> */}
+										{ /* <BlockIndex clientId={ clientId } /> */ }
 										Block #{ getIndexCount( clientId ) } of <BlockCount />
 									</span>
 								</Fragment>
@@ -97,14 +98,13 @@ const withParagraphExtendEdit =  createHigherOrderComponent( ( BlockEdit ) => {
 					</Fragment>
 					<BlockEdit { ...props } />
 				</Fragment>
-			);
+			)
 
-		} else
-		{
-			return <BlockEdit {...props} />;
-		};
+		} 
+			return <BlockEdit { ...props } />
+		;
 	};
-}, "withParagraphExtendEdit" );
+}, "withParagraphExtendEdit" )
 
 // Todo doc this
 addFilter(
@@ -113,4 +113,4 @@ addFilter(
 	withParagraphExtendEdit
 );
 
-export default withParagraphExtendEdit;
+export default withParagraphExtendEdit

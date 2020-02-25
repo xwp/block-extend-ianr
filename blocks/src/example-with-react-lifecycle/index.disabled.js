@@ -1,3 +1,10 @@
+/* eslint-disable no-console */
+
+/**
+ * External dependencies
+ */
+// import classnames from 'classnames'
+
 // Import the Component & Fragment classes from the wp-scripts ReactJS abstraction
 const { Component, Fragment } =  wp.element;
 
@@ -90,20 +97,21 @@ export const settings = {
 		render() {
 
 			const { title, description } = this.attributes;
+			const className = 'lifecycle test';
 
 			return (
 
 				<Fragment >
 					<BlockControls>
-						I appear inline with the block itself 😎
+						I appear inline with the block itself <span role="img" aria-label="happy">😎</span>
 					</BlockControls>
 					<InspectorControls>
-					{/* <p className={this.props.className}> */}
-					<p>
-							I'm in the block settings sidebar 🧐
+						{ /* <p className={this.props.className}> */ }
+						<p>
+							I am in the block settings sidebar <span role="img" aria-label="thinking">🧐</span>
 						</p>
 					</InspectorControls>
-					<div className={`learning-hmr-blocks ${className}`}>
+					<div className={ `learning-hmr-blocks ${className}` }>
 						<RichText
 							tagName="h2"
 							value={ title }
@@ -128,7 +136,7 @@ export const settings = {
 		const { title, description } = props;
 
 		return (
-			<div className={`learning-hmr-blocks`}>
+			<div className={ `learning-hmr-blocks` }>
 				<RichText.Content tagName="h2" value={ title } />
 				<RichText.Content tagName="p" multiline={ true } value={ description } />
 			</div>

@@ -18,7 +18,7 @@ export const settings = {
 
 		return (
 			<div>
-				<h2 className='c-block'>Can't edit me.</h2>
+				<h2 className='c-block'>Cannot edit me.</h2>
 			</div>
 		);
 	},

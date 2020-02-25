@@ -11,7 +11,7 @@ import classnames from 'classnames';
 const { Fragment } =  wp.element;
 
 // Get translation functions
-const { __ } = wp.i18n;
+// const { __ } = wp.i18n;
 
 // Get built in editor components
 const {
@@ -39,7 +39,7 @@ const BasicExampleEdit = ( {
 				I appear inline
 			</BlockControls>
 			<InspectorControls>
-				<p>I'm in the block settings sidebar and need padding.</p>
+				<p>I am in the block settings sidebar and need padding.</p>
 			</InspectorControls>
 			<RichText
 				identifier="content"
