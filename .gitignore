@@ -5,3 +5,4 @@
 /phpunit.xml
 /console.log
 /.phpunit.result.cache
+/scripts/wpcs
