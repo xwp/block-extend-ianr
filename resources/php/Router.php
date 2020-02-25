@@ -52,13 +52,9 @@ class Router {
 	 */
 	public function enqueue_editor_assets() {
 
-		// Quick and dirty hack to set HMR.
-		$hmr         = true;
-		$hmr ? $host = 'http://localhost:3030/' : $host = plugin_dir_url( __DIR__ );
-
 		wp_enqueue_script(
 			'block-extend-js',
-			$host . 'blocks/dist/index.js',
+			$this->plugin->asset_url( 'index.js', true, false ),
 			array(
 				'lodash',
 				'react',
@@ -73,14 +69,14 @@ class Router {
 
 		wp_enqueue_style(
 			'block-extend-style-css',
-			$host . 'blocks/dist/style.css',
+			$this->plugin->asset_url( 'style.css', true, false ),
 			array(),
 			$this->plugin->asset_version()
 		);
 
 		wp_enqueue_style(
 			'block-extend-editor-css',
-			$host . 'blocks/dist/editor.css',
+			$this->plugin->asset_url( 'editor.css', true, false ),
 			array(),
 			$this->plugin->asset_version()
 		);
@@ -94,7 +90,7 @@ class Router {
 	public function enqueue_front_assets() {
 		wp_enqueue_style(
 			'block-extend-css',
-			$this->plugin->asset_url( 'blocks/dist/style.css' ),
+			$this->plugin->asset_url( 'style.css', true, false ),
 			array(),
 			$this->plugin->asset_version()
 		);
