@@ -19,4 +19,5 @@
 	<exclude-pattern>/node_modules/</exclude-pattern>
 	<exclude-pattern>/vendor/</exclude-pattern>
 	<exclude-pattern>/scripts/wpcs/</exclude-pattern>
+	<exclude-pattern>/resources/images/</exclude-pattern>
 </ruleset>
