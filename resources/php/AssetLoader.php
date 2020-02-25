@@ -1,8 +1,18 @@
 <?php
 /**
  * Manage loading Webpack Dev Server assets.
+ *
+ * @package BlockExtend
  */
+
 namespace XWP\AssetLoader;
+
+/**
+ * Exit if accessed directly.
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Is this a development environment?
@@ -34,10 +44,16 @@ function load_asset_file( $path ) {
  * Check a directory for a root or build asset manifest file, and attempt to
  * decode and return the asset list JSON if found.
  *
- * @param string $directory Root directory containing `src` and `build` directory.
+ * @param string $manifest_path Root directory containing `src` and `build` directory.
+ * @throws XWP\Exception In case of failures, an exception is thrown.
  * @return array|null;
  */
-function get_assets_list( string $manifest_path ) {
+function get_assets_list( $manifest_path ) {
+
+	if ( ! is_string( $manifest_path ) ) {
+		throw new Exception( 'Please ensure the value is a number' );
+	}
+
 	$dev_assets = load_asset_file( $manifest_path );
 	if ( ! empty( $dev_assets ) ) {
 		return array_values( $dev_assets );
@@ -47,21 +63,18 @@ function get_assets_list( string $manifest_path ) {
 }
 
 /**
- * @param string $directory Root directory containing `src` and `build` directory.
- * @param array $opts {
- *     @type array    $scripts  Script dependencies.
- *     @type function $filter   Filter function to limit which scripts are enqueued.
- *     @type string   $handle   Style/script handle. (Default is last part of directory name.)
- *     @type array    $styles   Style dependencies.
- * }
+ * Hook into WP.
+ *
+ * @param string $manifest_path Root directory containing `src` and `build` directory.
+ * @param array  $opts The arguments passed to the function.
  */
-function enqueue_assets( $manifest_path, $opts = [] ) {
-	$defaults = [
+function enqueue_assets( $manifest_path, $opts = array() ) {
+	$defaults = array(
 		'handle'  => basename( plugin_dir_path( $manifest_path ) ),
 		'filter'  => '__return_true',
-		'scripts' => [],
-		'styles'  => [],
-	];
+		'scripts' => array(),
+		'styles'  => array(),
+	);
 
 	$opts = wp_parse_args( $opts, $defaults );
 

@@ -32,17 +32,17 @@
   "scripts": {
     "lint": [
       "@composer validate --strict",
-      "phpcs ."
+      "vendor/bin/phpcs ."
     ],
     "fix": [
       "@composer validate --strict",
-      "phpcbf ."
+      "vendor/bin/phpcbf ."
     ],
     "test": [
-      "phpunit"
+      "vendor/bin/phpunit"
     ],
     "coverage": [
-      "php-coveralls --verbose"
+      "vendor/bin/php-coveralls --verbose"
     ],
     "build": [
       "composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts"

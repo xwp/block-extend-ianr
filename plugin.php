@@ -1,28 +1,29 @@
 <?php
 /**
- * Plugin Name: IR Block Extend 
- * Description: Extend Gutenberg editor blocks. This is a coding challeng by XWP for Ian Register. 
+ * Plugin Name: IR Block Extend
+ * Description: Extend Gutenberg editor blocks. This is a coding challeng by XWP for Ian Register.
  * Version: 0.1.0
  * Author: XWP & Ian Register
  * Author URI: https://github.com/xwp/block-extend-ianr
  * Text Domain: ir-block-extend
+ *
+ * @package BlockExtend
  */
 
 namespace XWP\BlockExtend;
 
-// Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) exit;
+/**
+ * Exit if accessed directly.
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 // Support for site-level autoloading.
-if (file_exists(__DIR__ . '/vendor/autoload.php')) {
-    require_once __DIR__ . '/vendor/autoload.php';
+if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+	require_once __DIR__ . '/vendor/autoload.php';
 }
 
 $router = new Router( new Plugin( __FILE__ ) );
-
-// Enqueue editor UI scripts & styles.
-// TODO add to plugins_loaded hook
-// Quick hack / semi hard coding of dev/prod hostnames in Router.php
-// require_once( __DIR__ . '/php/asset-loader.php' );
 
 add_action( 'plugins_loaded', [ $router, 'init' ] );
