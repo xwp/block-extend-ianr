@@ -6,19 +6,18 @@ import classnames from 'classnames'
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n'
-import { Fragment } from '@wordpress/element'
-import {
-	InspectorControls,
-} from '@wordpress/block-editor'
-import {
+const { __ } = wp.i18n
+const { Fragment } = wp.element
+const { InspectorControls } = wp.blockEditor
+const {
 	PanelBody,
 	ToggleControl,
-} from '@wordpress/components'
-import { createHigherOrderComponent } from '@wordpress/compose'
-import { useSelect, select } from '@wordpress/data'
-
-// Event hooks from global object
+} = wp.components
+const { createHigherOrderComponent } = wp.compose
+const { 
+	useSelect,
+	select
+} = wp.data
 const { addFilter } = wp.hooks
 
 /**
