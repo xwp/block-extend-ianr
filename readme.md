@@ -5,19 +5,19 @@
 
 ## Notes from Ian Register
 
-#### Assumptions
+### Assumptions
 
 Need to ensure strings are translateable but not provide actual pot file / translation directories etc.
 
 Not including title block in count.
 
-#### Why did I add restructure to include multiple blocks / mutiple files per block
+### Why did I restructure to include multiple blocks / mutiple files per block
 
 Introduce least amount of boilerplate and not have to set up tests on every block for `registerBlockType`. Each block exports a `name` string and `settings` configuration object exactly as consumed by `registerBlockType`.
 
 Multiple files per block easier to find, understand etc - but mainly as named exports show up better in devtools rather than showing as anonymous
 
-#### Why did I add restructure the plugin
+### Why did I restructure the plugin
 
 Mostly to understand fully how it works.
 
@@ -27,12 +27,11 @@ Scripts I would consider renaming `config` so there's no confusion with thinking
 
 Also means that I get all the linters and coding standards properly working - this was something I've come across before - global vs local vs VM
 
-#### Why did I add HMR
+### Why did I add HMR
 
 When properly configured HMR allows developers to make changes to a component file, save, and see that component update instantly on our webpage without disrupting any other application state, dramatically speeding up prototyping work and code iteration.
 
-
-#### Testing
+### Testing
 
 Programmatic with jest/enzyme/phpunit but also user interactions add/remove blocks
 Test for have 0 blocks and then multiples
