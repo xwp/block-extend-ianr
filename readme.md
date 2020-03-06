@@ -23,7 +23,7 @@ Mostly to understand fully how it works.
 
 Moved images and php directories into `resources` as those images would relate to the plugin whereas any images for the blocks would be in either the blocks directory or the individual block directories
 
-Scripts I would consider renaming `config` so there's no confusion with thinking that it contains JS logic for the block or plugins (of course it contains JS in the webpack but that's not the point!)
+The `scripts` I would consider renaming `config` so there's no confusion with thinking that it contains JS logic for the block or plugins (of course it contains JS in the webpack but that's not the point!)
 
 Also means that I get all the linters and coding standards properly working - this was something I've come across before - global vs local vs VM
 
