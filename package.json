@@ -27,11 +27,13 @@
     "coverage": "npm-run-all --parallel coverage:*",
     "coverage:php": "composer coverage",
     "docker": "docker-compose run --workdir=/var/www/html/wp-content/plugins/block-scaffolding-wp wordpress",
-    "vagrant": "vagrant ssh -- COMPOSE_FILE=/vagrant/docker-compose.yml docker-compose run --workdir=/var/www/html/wp-content/plugins/block-scaffolding-wp wordpress"
+    "vagrant": "vagrant ssh -- COMPOSE_FILE=/vagrant/docker-compose.yml docker-compose run --workdir=/var/www/html/wp-content/plugins/block-scaffolding-wp wordpress",
+    "prettier": "prettier"
   },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.8.3",
     "@babel/preset-env": "^7.8.4",
+    "@prettier/plugin-php": "^0.13.0",
     "@wordpress/block-editor": "3.5.0",
     "@wordpress/scripts": "7.1.0",
     "block-editor-hmr": "^0.6.0",
@@ -44,6 +46,7 @@
     "postcss-loader": "^3.0.0",
     "postcss-normalize": "^8.0.1",
     "postcss-preset-env": "^6.7.0",
+    "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
     "stylelint-config-wordpress": "^16.0.0",
     "webpack-dev-server": "^3.10.2"
