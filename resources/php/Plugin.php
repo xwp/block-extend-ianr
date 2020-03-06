@@ -88,27 +88,26 @@ class Plugin {
 	/**
 	 * Get the public URL to the asset file.
 	 *
-	 * @param string $path_relative Path relative to this plugin file.
-	 * @param string $dist Sets whether src or dist directory used.
+	 * @param string  $path_relative Path relative to this plugin file.
+	 * @param string  $dist Sets whether src or dist directory used.
 	 * @param boolean $hmr If HMR is enabled use webpack dev server.
 	 * @return string The URL to the asset.
 	 */
 	public function asset_url( $path_relative, $dist = true, $hmr = false ) {
-
 		if ( $hmr ) {
 			$host = 'http://localhost:3030';
 		} else {
-			$plugin_directory = basename( plugin_dir_path(  dirname( __FILE__ , 2 ) ) );
-			$host = plugins_url() . '/' . $plugin_directory;
+			$plugin_directory = basename( plugin_dir_path( dirname( __FILE__, 2 ) ) );
+			$host             = plugins_url() . '/' . $plugin_directory;
 		}
-		
+
 		if ( $dist ) {
 			$build_directory = 'dist';
 		} else {
 			$build_directory = 'src';
 		}
-		
-		return $host . '/blocks/' . $build_directory . '/'. $path_relative;
+
+		return $host . '/blocks/' . $build_directory . '/' . $path_relative;
 	}
 
 	/**
@@ -205,5 +204,4 @@ class Plugin {
 
 		return $meta;
 	}
-
 }

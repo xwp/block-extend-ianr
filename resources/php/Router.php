@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Router {
 
+
 	/**
 	 * Plugin interface.
 	 *
@@ -51,7 +52,6 @@ class Router {
 	 * @return void
 	 */
 	public function enqueue_editor_assets() {
-
 		wp_enqueue_script(
 			'block-extend-js',
 			$this->plugin->asset_url( 'index.js', true, false ),

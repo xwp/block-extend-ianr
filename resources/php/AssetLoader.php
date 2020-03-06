@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return bool
  */
 function is_development() {
-	return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
+	 return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
 }
 
 /**
@@ -49,7 +49,6 @@ function load_asset_file( $path ) {
  * @return array|null;
  */
 function get_assets_list( $manifest_path ) {
-
 	if ( ! is_string( $manifest_path ) ) {
 		throw new Exception( 'Please ensure the value is a number' );
 	}
@@ -90,7 +89,7 @@ function enqueue_assets( $manifest_path, $opts = array() ) {
 
 	// There should only be one JS and one CSS file emitted per plugin or theme.
 	foreach ( $assets as $asset_uri ) {
-		if ( $opts['filter'] && ! $opts['filter']( $asset_uri ) ) {
+		if ( $opts['filter'] && ! $opts['filter']($asset_uri) ) {
 			// Ignore file paths which do not pass the provided filter test.
 			continue;
 		}
@@ -137,3 +136,23 @@ function enqueue_assets( $manifest_path, $opts = array() ) {
 	// Signal that auto-loading occurred.
 	return true;
 }
+
+/**
+ * Theme customizer
+ */
+add_action(
+	'customize_register',
+	function ( \WP_Customize_Manager $wp_customize ) {
+		// Add postMessage support
+		$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+		$wp_customize->selective_refresh->add_partial(
+			'blogname',
+			[
+				'selector'        => '.brand',
+				'render_callback' => function () {
+					bloginfo( 'name' );
+				},
+			]
+		);
+	}
+);
