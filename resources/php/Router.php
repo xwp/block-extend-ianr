@@ -19,7 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Router {
 
-
 	/**
 	 * Plugin interface.
 	 *

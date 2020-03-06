@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin class.
  *
@@ -58,7 +59,7 @@ class Plugin {
 	 * @return string
 	 */
 	public function dir() {
-		return $this->dir;
+		 return $this->dir;
 	}
 
 	/**
@@ -73,7 +74,7 @@ class Plugin {
 	/**
 	 * Get the file path relative to the WordPress plugin directory.
 	 *
-	 * @param  string $file_path Absolute path to any plugin file.
+	 * @param string $file_path Absolute path to any plugin file.
 	 *
 	 * @return string
 	 */
@@ -88,9 +89,9 @@ class Plugin {
 	/**
 	 * Get the public URL to the asset file.
 	 *
-	 * @param string  $path_relative Path relative to this plugin file.
-	 * @param string  $dist Sets whether src or dist directory used.
-	 * @param boolean $hmr If HMR is enabled use webpack dev server.
+	 * @param  string  $path_relative Path relative to this plugin file.
+	 * @param  string  $dist          Sets whether src or dist directory used.
+	 * @param  boolean $hmr           If HMR is enabled use webpack dev server.
 	 * @return string The URL to the asset.
 	 */
 	public function asset_url( $path_relative, $dist = true, $hmr = false ) {
@@ -113,7 +114,7 @@ class Plugin {
 	/**
 	 * Get absolute path to a file in the uploads directory.
 	 *
-	 * @param  string $path_relative File path relative to the root of the WordPress uploads directory.
+	 * @param string $path_relative File path relative to the root of the WordPress uploads directory.
 	 *
 	 * @return string
 	 */
@@ -128,7 +129,7 @@ class Plugin {
 	/**
 	 * Get URL to a file in the uploads directory.
 	 *
-	 * @param  string $path_relative Path to the file relative to the root of the WordPress uploads directory.
+	 * @param string $path_relative Path to the file relative to the root of the WordPress uploads directory.
 	 *
 	 * @return string
 	 */
@@ -155,7 +156,7 @@ class Plugin {
 	 * @return boolean
 	 */
 	public function is_script_debug() {
-		return ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG );
+		 return ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG );
 	}
 
 	/**
@@ -164,7 +165,7 @@ class Plugin {
 	 * @return mixed
 	 */
 	public function version() {
-		return $this->meta( 'Version' );
+		 return $this->meta( 'Version' );
 	}
 
 	/**
@@ -183,7 +184,7 @@ class Plugin {
 	/**
 	 * Get plugin meta data.
 	 *
-	 * @param  string $field Optional field key.
+	 * @param string $field Optional field key.
 	 *
 	 * @return array|string|null
 	 */
