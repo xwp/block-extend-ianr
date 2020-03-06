@@ -6,7 +6,7 @@
 // import classnames from 'classnames'
 
 // Import the Component & Fragment classes from the wp-scripts ReactJS abstraction
-const { Component, Fragment } =  wp.element;
+const { Component, Fragment } = wp.element;
 
 // Add the CSS
 import './style.scss';
@@ -60,42 +60,39 @@ export const settings = {
 	// The block in edit mode
 	// React not available by default in frontend thus use lifecycle on edit
 	edit: class extends Component {
-
 		//standard constructor for a component
 		constructor() {
-			super(...arguments);
-			console.log(this.props.name, ": constructor()");
+			super( ...arguments );
+			console.log( this.props.name, ': constructor()' );
 
 			// example how to bind `this` to the current component for our callbacks
-			this.onChangeContent = this.onChangeContent.bind(this);
+			this.onChangeContent = this.onChangeContent.bind( this );
 
 			// some place for your state
 			this.state = {};
 		}
 
 		componentDidMount() {
-			console.log(this.props.name, ": componentDidMount()");
+			console.log( this.props.name, ': componentDidMount()' );
 		}
 
 		componentDidUpdate() {
-			console.log(this.props.name, ": componentDidUpdate()");
+			console.log( this.props.name, ': componentDidUpdate()' );
 		}
 
-
 		componentWillUnmount() {
-			console.log(this.props.name, ": componentWillUnmount()");
+			console.log( this.props.name, ': componentWillUnmount()' );
 		}
 
 		// update attributes when content is updated
-		onChangeContent(data) {
+		onChangeContent( data ) {
 			// set attribute the react way
-			this.props.setAttributes({ content: data });
+			this.props.setAttributes( { content: data } );
 		}
 
 		// edit: function (props) {
 		// Creates a <p class='wp-block-cgb-block-react-lifecycle-block'></p>.
 		render() {
-
 			const { title, description } = this.attributes;
 			const className = 'lifecycle test';
 
@@ -111,7 +108,7 @@ export const settings = {
 							I am in the block settings sidebar <span role="img" aria-label="thinking">🧐</span>
 						</p>
 					</InspectorControls>
-					<div className={ `learning-hmr-blocks ${className}` }>
+					<div className={ `learning-hmr-blocks ${ className }` }>
 						<RichText
 							tagName="h2"
 							value={ title }

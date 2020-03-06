@@ -8,7 +8,7 @@ import classnames from 'classnames';
  */
 
 // Import the Fragment class from the wp-scripts ReactJS abstraction
-const { Fragment } =  wp.element;
+const { Fragment } = wp.element;
 
 // Get translation functions
 // const { __ } = wp.i18n;
@@ -51,6 +51,6 @@ const BasicExampleEdit = ( {
 			/>
 		</Fragment>
 	);
-}
+};
 
 export default BasicExampleEdit;

@@ -1,13 +1,13 @@
 {
-	"name": "",
-	"category": "common",
-	"allowedBlocks" : [
-		"core/paragraph"
-	],
-	"attributes": {
-		"orderNumber": {
-			"type": "boolean",
-			"default": false
-		}
-	}
+  "name": "",
+  "category": "common",
+  "allowedBlocks": [
+    "core/paragraph"
+  ],
+  "attributes": {
+    "orderNumber": {
+      "type": "boolean",
+      "default": false
+    }
+  }
 }

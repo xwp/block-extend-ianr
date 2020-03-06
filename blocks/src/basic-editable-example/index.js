@@ -9,7 +9,7 @@ import './editor.scss';
 
 /**
  * WordPress dependencies
- * 
+ *
  * Refer to scripts/externals.js for importing @wordpress/* packages to `wp` global
  */
 

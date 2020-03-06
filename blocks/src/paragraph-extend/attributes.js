@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-const { addFilter } = wp.hooks; 
+const { addFilter } = wp.hooks;
 
 /**
  * Internal dependencies
@@ -12,20 +12,17 @@ import metadata from './block.json';
 const allowedBlocks = metadata.allowedBlocks;
 
 const ParagraphExtendAttributes = ( settings ) => {
-
 	if ( allowedBlocks.includes( settings.name ) ) {
-
 		settings.attributes = Object.assign( settings.attributes, {
-			orderNumber:{ 
+			orderNumber: {
 				type: 'boolean',
 				default: false,
-			}
-		});
-	
+			},
+		} );
 	}
 
 	return settings;
-}
+};
 
 addFilter(
 	'blocks.registerBlockType',

@@ -8,11 +8,11 @@ import './style.scss';
 
 /**
  * WordPress dependencies
- * 
+ *
  * Refer to scripts/externals.js for importing @wordpress/* packages to `wp` global
  */
 
- // Get translation functions
+// Get translation functions
 const { __ } = wp.i18n;
 
 /**

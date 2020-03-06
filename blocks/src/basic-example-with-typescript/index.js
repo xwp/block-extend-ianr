@@ -15,10 +15,9 @@ export const settings = {
 	category: 'common',
 
 	edit() {
-
 		return (
 			<div>
-				<h2 className='c-block'>Cannot edit me.</h2>
+				<h2 className="c-block">Cannot edit me.</h2>
 			</div>
 		);
 	},

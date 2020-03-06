@@ -1,18 +1,18 @@
 // Targets block in editor
 .wp-block[data-type="ir-block-extend/basic-example"] {
 
-  .c-block {
-    background-color: palegoldenrod;
+	.c-block {
+		background-color: #eee8aa;
 		padding: 30px 50px;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    
-    h2 {
-      background-color: palevioletred;
-    }  
-  }
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+		h2 {
+			background-color: #d87093;
+		}
+	}
 
 	> .block-editor-block-list__block-edit {
-    background-color: chocolate;
+		background-color: #d2691e;
 		padding: 30px;
 		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 	}
@@ -20,13 +20,14 @@
 
 // Targets front end only
 .entry-content {
-  .wp-block-ir-block-extend-basic-example {
-    background-color: darkmagenta;
+
+	.wp-block-ir-block-extend-basic-example {
+		background-color: #8b008b;
 		padding: 30px 50px;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    
-    h2 {
-      background-color: palegoldenrod;
-    }  
-  }
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+		h2 {
+			background-color: #eee8aa;
+		}
+	}
 }
